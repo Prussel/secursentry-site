@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SecurSentry — Cyber security, made simple</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS — LIGHT THEME (default)
+───────────────────────────────────────────── */
+:root {
+  --forest:      #1B4332;
+  --sage:        #2D7A56;
+  --lime:        #B7E4C7;
+  --terracotta:  #B34E35;
+  --sand:        #F7F2EB;
+  --white:       #FFFFFF;
+  --slate:       #2B3A4A;
+  --dim:         #4A5D6E;
+  --border:      #D9D4CC;
+  --success-bg:  #EAF7EE;
+
+  /* Theme-mapped tokens */
+  --bg:             var(--sand);
+  --bg-nav:         rgba(247,242,235,0.88);
+  --bg-card:        var(--white);
+  --card-border:    var(--border);
+  --card-shadow:    0 8px 28px rgba(0,0,0,0.08);
+
+  --heading:        var(--forest);
+  --heading-em:     var(--sage);
+  --body:           var(--slate);
+  --body-muted:     var(--dim);
+
+  --logo-name:      var(--forest);
+  --logo-tag:       var(--sage);
+  --logo-shield:    var(--forest);
+
+  --eyebrow-bg:     var(--success-bg);
+  --eyebrow-text:   #1B5E35;
+  --eyebrow-dot:    var(--sage);
+
+  --badge-bg:       var(--success-bg);
+  --badge-text:     #1B5E35;
+  --badge-border:   transparent;
+
+  --input-bg:       var(--white);
+  --input-border:   var(--border);
+  --input-text:     var(--slate);
+  --input-placeholder: #9AAAB5;
+  --input-focus-ring: rgba(45,122,86,0.12);
+
+  --label-color:    var(--forest);
+  --hint-color:     var(--dim);
+
+  --divider:        var(--border);
+  --footer-bg:      rgba(0,0,0,0.03);
+  --footer-text:    var(--dim);
+  --footer-link:    var(--sage);
+
+  --arc-color:      var(--lime);
+  --arc-opacity:    0.45;
+  --grid-color:     rgba(27,67,50,0.04);
+
+  --toggle-bg:      var(--forest);
+  --toggle-text:    var(--white);
+  --toggle-icon:    '🌙';
+}
+
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS — DARK THEME
+───────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:             var(--forest);
+  --bg-nav:         rgba(27,67,50,0.92);
+  --bg-card:        rgba(255,255,255,0.05);
+  --card-border:    rgba(255,255,255,0.10);
+  --card-shadow:    0 8px 40px rgba(0,0,0,0.35);
+
+  --heading:        #FFFFFF;
+  --heading-em:     var(--lime);
+  --body:           rgba(255,255,255,0.85);
+  --body-muted:     rgba(255,255,255,0.55);
+
+  --logo-name:      #FFFFFF;
+  --logo-tag:       var(--lime);
+  --logo-shield:    rgba(255,255,255,0.70);
+
+  --eyebrow-bg:     rgba(183,228,199,0.12);
+  --eyebrow-text:   var(--lime);
+  --eyebrow-dot:    var(--lime);
+
+  --badge-bg:       rgba(183,228,199,0.10);
+  --badge-text:     var(--lime);
+  --badge-border:   rgba(183,228,199,0.20);
+
+  --input-bg:       rgba(255,255,255,0.07);
+  --input-border:   rgba(255,255,255,0.15);
+  --input-text:     #FFFFFF;
+  --input-placeholder: rgba(255,255,255,0.30);
+  --input-focus-ring: rgba(183,228,199,0.15);
+
+  --label-color:    rgba(255,255,255,0.80);
+  --hint-color:     rgba(255,255,255,0.45);
+
+  --divider:        rgba(255,255,255,0.08);
+  --footer-bg:      rgba(0,0,0,0.15);
+  --footer-text:    rgba(255,255,255,0.35);
+  --footer-link:    var(--lime);
+
+  --arc-color:      var(--lime);
+  --arc-opacity:    0.12;
+  --grid-color:     rgba(183,228,199,0.04);
+
+  --toggle-bg:      rgba(255,255,255,0.10);
+  --toggle-text:    #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────
+   DECORATIVE BACKGROUND
+───────────────────────────────────────────── */
+.bg-deco {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Subtle grid */
+.bg-deco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transition: background-image 0.4s ease;
+}
+
+/* Large arc — top right */
+.arc-1 {
+  position: absolute;
+  top: -220px;
+  right: -280px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 56px solid var(--arc-color);
+  opacity: var(--arc-opacity);
+  transition: opacity 0.4s ease, border-color 0.4s ease;
+}
+
+/* Smaller arc — bottom left */
+.arc-2 {
+  position: absolute;
+  bottom: -300px;
+  left: -180px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 36px solid var(--arc-color);
+  opacity: calc(var(--arc-opacity) * 0.55);
+  transition: opacity 0.4s ease, border-color 0.4s ease;
+}
+
+/* Dark-mode radial glow */
+[data-theme="dark"] .arc-1 { display: none; }
+[data-theme="dark"] .arc-2 { display: none; }
+
+.glow {
+  display: none;
+  position: absolute;
+  top: 5%;
+  left: -5%;
+  width: 65vw;
+  height: 65vw;
+  max-width: 650px;
+  max-height: 650px;
+  background: radial-gradient(ellipse, rgba(45,122,86,0.22) 0%, transparent 70%);
+}
+[data-theme="dark"] .glow { display: block; }
+
+/* ─────────────────────────────────────────────
+   NAV
+───────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-nav);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--divider);
+  padding: 0 40px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.logo-shield-svg path { transition: stroke 0.4s ease; }
+
+.logo-text-wrap { display: flex; flex-direction: column; gap: 2px; }
+
+.logo-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--logo-name);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.logo-tagline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 9px;
+  color: var(--logo-tag);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+/* Status pill */
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.coming-soon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--eyebrow-bg);
+  color: var(--eyebrow-text);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 50px;
+  letter-spacing: 0.04em;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--eyebrow-dot);
+  flex-shrink: 0;
+  animation: pulseDot 2.5s ease infinite;
+  transition: background 0.4s ease;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* ─────────────────────────────────────────────
+   THEME TOGGLE
+───────────────────────────────────────────── */
+.theme-toggle {
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--divider);
+  border-radius: 50px;
+  padding: 7px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.toggle-icon { font-size: 14px; line-height: 1; }
+
+/* ─────────────────────────────────────────────
+   MAIN CONTENT — two-column grid
+───────────────────────────────────────────── */
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 80px 40px 80px;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────
+   LEFT — Copy
+───────────────────────────────────────────── */
+.col-left {}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eyebrow-text);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.2s forwards;
+  transition: color 0.4s ease;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4vw, 54px);
+  color: var(--heading);
+  line-height: 1.1;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.3s forwards;
+  transition: color 0.4s ease;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--heading-em);
+  transition: color 0.4s ease;
+}
+
+.body-text {
+  font-size: 16px;
+  color: var(--body-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 460px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.4s forwards;
+  transition: color 0.4s ease;
+}
+
+/* Feature list */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.5s forwards;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 14px;
+  color: var(--body-muted);
+  transition: color 0.4s ease;
+}
+
+.check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.check-icon svg { width: 11px; height: 11px; }
+.check-icon svg path { stroke: var(--eyebrow-dot); transition: stroke 0.4s ease; }
+
+/* Framework badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.55s forwards;
+}
+
+.badge {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-border);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────
+   RIGHT — Card
+───────────────────────────────────────────── */
+.col-right {
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.45s forwards;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-heading {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--heading);
+  margin-bottom: 6px;
+  transition: color 0.4s ease;
+}
+
+.card-sub {
+  font-size: 14px;
+  color: var(--body-muted);
+  margin-bottom: 28px;
+  transition: color 0.4s ease;
+}
+
+/* Inputs */
+.field { margin-bottom: 16px; }
+
+.field label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--label-color);
+  margin-bottom: 7px;
+  transition: color 0.4s ease;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  color: var(--input-text);
+  background: var(--input-bg);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.4s ease, color 0.4s ease;
+}
+
+.field input::placeholder { color: var(--input-placeholder); }
+
+.field input:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px var(--input-focus-ring);
+}
+
+/* Company size selector */
+.size-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--label-color);
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.4s ease;
+}
+
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.size-opt {
+  text-align: center;
+  padding: 9px 4px;
+  border: 1.5px solid var(--input-border);
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--body-muted);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.size-opt:hover {
+  border-color: var(--sage);
+  color: var(--sage);
+}
+
+.size-opt.active {
+  border-color: var(--sage);
+  color: var(--sage);
+  background: rgba(45,122,86,0.08);
+}
+
+[data-theme="dark"] .size-opt.active {
+  background: rgba(183,228,199,0.1);
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+/* Primary button */
+.btn-primary {
+  width: 100%;
+  background: var(--sage);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(45,122,86,0.3);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  background: var(--forest);
+  transform: translateY(-1px);
+  box-shadow: 0 7px 22px rgba(27,67,50,0.35);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+/* Privacy note */
+.privacy-note {
+  font-size: 11px;
+  color: var(--hint-color);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+  transition: color 0.4s ease;
+}
+
+/* ── Success state ── */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.success-icon-wrap {
+  width: 56px;
+  height: 56px;
+  background: var(--badge-bg);
+  border: 2px solid var(--badge-border, rgba(45,122,86,0.25));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: background 0.4s ease;
+}
+
+.success-state h3 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  color: var(--heading);
+  margin-bottom: 10px;
+  transition: color 0.4s ease;
+}
+
+.success-state p {
+  font-size: 14px;
+  color: var(--body-muted);
+  line-height: 1.65;
+  transition: color 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+footer {
+  position: relative;
+  z-index: 1;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--divider);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--footer-text);
+  flex-wrap: wrap;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 0.8s forwards;
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+footer a {
+  color: var(--footer-link);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+footer a:hover { text-decoration: underline; }
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 48px 24px 64px;
+  }
+  nav { padding: 0 24px; }
+  footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+  .status-pill { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .size-grid { grid-template-columns: repeat(2, 1fr); }
+  nav .coming-soon { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Decorative background layer -->
+<div class="bg-deco" aria-hidden="true">
+  <div class="arc-1"></div>
+  <div class="arc-2"></div>
+  <div class="glow"></div>
+</div>
+
+<!-- ── Nav ── -->
+<nav>
+  <a class="logo" href="#">
+    <svg class="logo-shield-svg" width="34" height="38" viewBox="0 0 34 38" fill="none" aria-hidden="true">
+      <path d="M17 2L3 8v11c0 9 6 17 14 19 8-2 14-10 14-19V8L17 2z"
+            stroke="var(--logo-shield)" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+      <path d="M11 19l4.5 4.5L23 14"
+            stroke="var(--logo-shield)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="logo-text-wrap">
+      <span class="logo-name">SecurSentry</span>
+      <span class="logo-tagline">Cyber security, made simple</span>
+    </div>
+  </a>
+
+  <div class="status-pill">
+    <span class="coming-soon">
+      <span class="pulse-dot"></span>
+      Coming soon
+    </span>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle colour theme">
+      <span class="toggle-icon" id="toggleIcon">🌙</span>
+      <span id="toggleLabel">Dark mode</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Main ── -->
+<main>
+
+  <!-- Left: copy -->
+  <div class="col-left">
+
+    <p class="eyebrow">Launching soon</p>
+
+    <h1>Compliance that <em>fits</em><br>your business</h1>
+
+    <p class="body-text">
+      SecurSentry is a guided compliance platform built for small UK and European businesses.
+      We make Cyber Essentials and GDPR feel achievable — not overwhelming.
+      No jargon. No consultancy bills. Just clear steps your team can actually follow.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <span class="check-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l3 3 5-6" stroke="#2D7A56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Step-by-step Cyber Essentials guidance
+      </div>
+      <div class="feature">
+        <span class="check-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l3 3 5-6" stroke="#2D7A56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Plain-English GDPR checklists — not legal-speak
+      </div>
+      <div class="feature">
+        <span class="check-icon">
+          <svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l3 3 5-6" stroke="#2D7A56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Built for teams under 100 people, not enterprise
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Cyber Essentials</span>
+      <span class="badge">GDPR</span>
+      <span class="badge">UK &amp; EU</span>
+    </div>
+
+  </div>
+
+  <!-- Right: registration card -->
+  <div class="col-right">
+    <div class="card">
+
+      <!-- Form -->
+      <div id="formContent">
+        <h2 class="card-heading">Get early access</h2>
+        <p class="card-sub">Join the waitlist and we'll reach out the moment we launch.</p>
+
+        <div class="field">
+          <label for="fname">Your name</label>
+          <input type="text" id="fname" placeholder="Alex Smith" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="femail">Work email</label>
+          <input type="email" id="femail" placeholder="alex@yourcompany.co.uk" autocomplete="email">
+        </div>
+
+        <span class="size-label">Company size</span>
+        <div class="size-grid" id="sizeGrid">
+          <div class="size-opt" onclick="selectSize(this)">1–10</div>
+          <div class="size-opt" onclick="selectSize(this)">11–25</div>
+          <div class="size-opt" onclick="selectSize(this)">26–50</div>
+          <div class="size-opt" onclick="selectSize(this)">51–100</div>
+        </div>
+
+        <button class="btn-primary" onclick="handleSubmit()">
+          Join the waitlist →
+        </button>
+        <p class="privacy-note">No spam, ever. Unsubscribe any time. We never share your data.</p>
+      </div>
+
+      <!-- Success state -->
+      <div class="success-state" id="successContent">
+        <div class="success-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12l5 5L19 7" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>You're on the list</h3>
+        <p>Thanks for your interest in SecurSentry. We've got your details and we'll be in touch as soon as we're ready to welcome you onboard.</p>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <span>© 2025 SecurSentry Ltd · Registered in England &amp; Wales</span>
+  <span>
+    <a href="#">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="/cdn-cgi/l/email-protection#b6ded3dadad9f6c5d3d5c3c4c5d3d8c2c4cf98d5d9db"><span class="__cf_email__" data-cfemail="79111c151516390a1c1a0c0b0a1c170d0b00571a1614">[email&#160;protected]</span></a>
+  </span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Theme toggle ── */
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('toggleIcon').textContent  = isDark ? '🌙' : '☀️';
+    document.getElementById('toggleLabel').textContent = isDark ? 'Dark mode' : 'Light mode';
+  }
+
+  /* ── Size selector ── */
+  function selectSize(el) {
+    document.querySelectorAll('.size-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+
+<script>
+  /* ── Theme toggle ── */
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('toggleIcon').textContent  = isDark ? '🌙' : '☀️';
+    document.getElementById('toggleLabel').textContent = isDark ? 'Dark mode' : 'Light mode';
+  }
+
+  /* ── Size selector ── */
+  function selectSize(el) {
+    document.querySelectorAll('.size-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  /* ── Form submit ── */
+  async function handleSubmit() {
+    const email      = document.getElementById('femail').value.trim();
+    const name       = document.getElementById('fname').value.trim();
+    const emailInput = document.getElementById('femail');
+    const btn        = document.querySelector('.btn-primary');
+
+    // Validation
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      emailInput.style.borderColor = '#B34E35';
+      emailInput.style.boxShadow   = '0 0 0 3px rgba(179,78,53,0.12)';
+      emailInput.focus();
+      setTimeout(() => {
+        emailInput.style.borderColor = '';
+        emailInput.style.boxShadow   = '';
+      }, 2000);
+      return;
+    }
+
+    // Loading state
+    btn.textContent  = 'Sending…';
+    btn.disabled     = true;
+    btn.style.opacity = '0.7';
+
+    // Get selected company size
+    const sizeEl = document.querySelector('.size-opt.active');
+    const size   = sizeEl ? sizeEl.textContent : 'Not specified';
+
+    try {
+      const response = await fetch('https://formspree.io/f/mvzwolqb', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify({ name, email, company_size: size })
+      });
+
+      if (!response.ok) throw new Error('Submission failed');
+
+      // Animate to success state
+      const formContent    = document.getElementById('formContent');
+      const successContent = document.getElementById('successContent');
+
+      formContent.style.transition = 'opacity 0.3s ease';
+      formContent.style.opacity    = '0';
+
+      setTimeout(() => {
+        formContent.style.display    = 'none';
+        successContent.style.display = 'block';
+        successContent.style.opacity = '0';
+        successContent.style.transform   = 'translateY(10px)';
+        successContent.style.transition  = 'opacity 0.4s ease, transform 0.4s ease';
+        requestAnimationFrame(() => {
+          successContent.style.opacity   = '1';
+          successContent.style.transform = 'translateY(0)';
+        });
+      }, 300);
+
+    } catch (err) {
+      // Reset button, show error hint
+      btn.textContent   = 'Join the waitlist →';
+      btn.disabled      = false;
+      btn.style.opacity = '1';
+      emailInput.style.borderColor = '#B34E35';
+      emailInput.placeholder = 'Something went wrong — please try again';
+      setTimeout(() => {
+        emailInput.style.borderColor = '';
+        emailInput.placeholder = 'alex@yourcompany.co.uk';
+      }, 3000);
+    }
+  }
+</script>
+</body>
+</html>
