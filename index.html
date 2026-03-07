@@ -872,18 +872,19 @@ footer a:hover { text-decoration: underline; }
 <footer>
   <span>© 2025 SecurSentry Ltd · Registered in England &amp; Wales</span>
   <span>
-    <a href="https://secursentry.com/privacy-policy.html">Privacy Policy</a>
+    <a href="/privacy-policy.html">Privacy Policy</a>
     &nbsp;·&nbsp;
-    <a href="#"><span class="__cf_email__" data-cfemail="147c7178787b54677177616667717a60666d3a777b79">[email&#160;protected]</span></a>
+    <a href="mailto:hello@secursentry.com">hello@secursentry.com</a>
   </span>
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+<script data-cfasync="false">
   /* ── Theme toggle ── */
   function toggleTheme() {
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
+    var html = document.documentElement;
+    var isDark = html.getAttribute('data-theme') === 'dark';
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
     document.getElementById('toggleIcon').textContent  = isDark ? '\u{1F319}' : '\u2600\uFE0F';
     document.getElementById('toggleLabel').textContent = isDark ? 'Dark mode' : 'Light mode';
@@ -956,4 +957,13 @@ footer a:hover { text-decoration: underline; }
       btn.disabled      = false;
       btn.style.opacity = '1';
       emailInput.style.borderColor = '#B34E35';
-      emailInput.placeholder = 'Something went wrong \u2014 please
+      emailInput.placeholder = 'Something went wrong \u2014 please try again';
+      setTimeout(function() {
+        emailInput.style.borderColor = '';
+        emailInput.placeholder       = 'alex@yourcompany.co.uk';
+      }, 3000);
+    }
+  }
+</script>
+</body>
+</html>
