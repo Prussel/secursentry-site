@@ -1,0 +1,13 @@
+{
+  "name": "SecurSentry",
+  "short_name": "SecurSentry",
+  "description": "Cyber security compliance, made simple for small businesses.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F7F2EB",
+  "theme_color": "#1B4332",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
