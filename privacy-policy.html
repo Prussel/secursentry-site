@@ -78,14 +78,6 @@
 
   --rule:         var(--border);
   --divider:      var(--border);
-  --footer-bg:    rgba(0,0,0,0.03);
-  --footer-text:  var(--dim);
-  --footer-link:  var(--sage);
-
-  --toc-bg:       var(--sand);
-  --toc-border:   var(--border);
-  --toc-link:     var(--sage);
-  --toc-link-hover: var(--forest);
 
   --arc-color:    var(--lime);
   --arc-opacity:  0.4;
@@ -306,86 +298,12 @@ nav {
   position: relative;
   z-index: 1;
   flex: 1;
-  max-width: 900px;
+  max-width: 740px;
   margin: 0 auto;
   width: 100%;
   padding: 56px 40px 96px;
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 56px;
-  align-items: start;
 }
 
-/* ─────────────────────────────────────────────
-   SIDEBAR — sticky TOC
-───────────────────────────────────────────── */
-.sidebar {
-  position: sticky;
-  top: 88px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.1s forwards;
-}
-
-.toc {
-  background: var(--toc-bg);
-  border: 1px solid var(--toc-border);
-  border-radius: 14px;
-  padding: 20px 20px 24px;
-  transition: background 0.4s ease, border-color 0.4s ease;
-}
-
-.toc-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--body-muted);
-  margin-bottom: 14px;
-  display: block;
-  transition: color 0.4s ease;
-}
-
-.toc-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.toc-list a {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--toc-link);
-  text-decoration: none;
-  padding: 5px 8px;
-  border-radius: 6px;
-  line-height: 1.4;
-  transition: color 0.2s ease, background 0.2s ease;
-}
-
-.toc-list a:hover {
-  color: var(--toc-link-hover);
-  background: rgba(45,122,86,0.08);
-}
-
-[data-theme="dark"] .toc-list a:hover {
-  background: rgba(255,255,255,0.06);
-}
-
-.toc-updated {
-  font-size: 11px;
-  color: var(--body-muted);
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--rule);
-  line-height: 1.5;
-  transition: color 0.4s ease, border-color 0.4s ease;
-}
-
-/* ─────────────────────────────────────────────
-   MAIN CONTENT
-───────────────────────────────────────────── */
 .content {
   opacity: 0;
   animation: fadeUp 0.6s ease 0.2s forwards;
@@ -454,6 +372,7 @@ nav {
   margin-bottom: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 88px;
   transition: border-color 0.4s ease;
 }
 
@@ -678,16 +597,7 @@ footer a:hover { text-decoration: underline; }
    RESPONSIVE
 ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .page {
-    grid-template-columns: 1fr;
-    padding: 40px 24px 80px;
-    gap: 40px;
-  }
-  .sidebar {
-    position: static;
-    order: -1;
-  }
-  .toc { display: none; } /* hide TOC on mobile — headings act as anchors */
+  .page { padding: 40px 24px 80px; }
   nav { padding: 0 24px; }
   footer { padding: 20px 24px; flex-direction: column; text-align: center; }
   .rights-grid { grid-template-columns: 1fr; }
@@ -736,28 +646,6 @@ footer a:hover { text-decoration: underline; }
 <div class="page">
 
   <!-- Sidebar TOC -->
-  <aside class="sidebar">
-    <nav class="toc" aria-label="Page contents">
-      <span class="toc-label">Contents</span>
-      <ul class="toc-list">
-        <li><a href="#who-we-are">1. Who we are</a></li>
-        <li><a href="#what-we-collect">2. What we collect</a></li>
-        <li><a href="#legal-basis">3. Legal basis</a></li>
-        <li><a href="#how-we-use">4. How we use it</a></li>
-        <li><a href="#third-parties">5. Third-party processors</a></li>
-        <li><a href="#retention">6. Data retention</a></li>
-        <li><a href="#transfers">7. International transfers</a></li>
-        <li><a href="#your-rights">8. Your rights</a></li>
-        <li><a href="#cookies">9. Cookies</a></li>
-        <li><a href="#children">10. Children's privacy</a></li>
-        <li><a href="#complaints">11. Complaints</a></li>
-        <li><a href="#changes">12. Changes</a></li>
-        <li><a href="#contact">13. Contact us</a></li>
-      </ul>
-      <p class="toc-updated">Last updated<br><strong>March 2025</strong></p>
-    </nav>
-  </aside>
-
   <!-- Main content -->
   <main class="content">
 
