@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — SecurSentry</title>
+
+<!-- ── SEO ── -->
+<meta name="description"         content="SecurSentry's privacy policy. How we collect, use, and protect your personal data in line with UK GDPR and EU GDPR.">
+<meta name="keywords"            content="SecurSentry privacy policy, GDPR, UK GDPR, data protection, personal data">
+<meta name="author"              content="SecurSentry">
+<meta name="robots"              content="noindex, follow">
+<link rel="canonical"            href="https://secursentry.com/privacy-policy.html">
+<meta name="geo.region"          content="GB">
+<meta name="geo.placename"       content="United Kingdom">
+
+<!-- ── Open Graph ── -->
+<meta property="og:type"         content="website">
+<meta property="og:url"          content="https://secursentry.com/privacy-policy.html">
+<meta property="og:site_name"    content="SecurSentry">
+<meta property="og:locale"       content="en_GB">
+<meta property="og:title"        content="Privacy Policy — SecurSentry">
+<meta property="og:description"  content="How SecurSentry collects, uses, and protects your personal data in line with UK GDPR and EU GDPR.">
+<meta property="og:image"        content="https://secursentry.com/og-image.png">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt"    content="SecurSentry — Cyber security, made simple">
+
+<!-- ── Twitter / X ── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:site"        content="@secursentry">
+<meta name="twitter:title"       content="Privacy Policy — SecurSentry">
+<meta name="twitter:description" content="How SecurSentry collects, uses, and protects your personal data in line with UK GDPR and EU GDPR.">
+<meta name="twitter:image"       content="https://secursentry.com/og-image.png">
+<meta name="twitter:image:alt"   content="SecurSentry — Cyber security, made simple">
+
+<!-- ── Favicon ── -->
+<link rel="icon"                 href="/favicon.ico" sizes="any">
+<link rel="icon"                 href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon"     href="/apple-touch-icon.png">
+<link rel="manifest"             href="/site.webmanifest">
+<meta name="theme-color"         content="#1B4332">
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS — LIGHT
+───────────────────────────────────────────── */
+:root {
+  --forest:     #1B4332;
+  --sage:       #2D7A56;
+  --lime:       #B7E4C7;
+  --sand:       #F7F2EB;
+  --white:      #FFFFFF;
+  --slate:      #2B3A4A;
+  --dim:        #4A5D6E;
+  --border:     #D9D4CC;
+  --success-bg: #EAF7EE;
+
+  --bg:           var(--sand);
+  --bg-nav:       rgba(247,242,235,0.88);
+  --bg-surface:   var(--white);
+  --surface-border: var(--border);
+  --surface-shadow: 0 4px 24px rgba(0,0,0,0.07);
+
+  --heading:      var(--forest);
+  --heading-em:   var(--sage);
+  --body:         var(--slate);
+  --body-muted:   var(--dim);
+
+  --logo-name:    var(--forest);
+  --logo-tag:     var(--sage);
+  --logo-shield:  var(--forest);
+
+  --eyebrow-bg:   var(--success-bg);
+  --eyebrow-text: #1B5E35;
+  --eyebrow-dot:  var(--sage);
+
+  --rule:         var(--border);
+  --divider:      var(--border);
+  --footer-bg:    rgba(0,0,0,0.03);
+  --footer-text:  var(--dim);
+  --footer-link:  var(--sage);
+
+  --toc-bg:       var(--sand);
+  --toc-border:   var(--border);
+  --toc-link:     var(--sage);
+  --toc-link-hover: var(--forest);
+
+  --arc-color:    var(--lime);
+  --arc-opacity:  0.4;
+  --grid-color:   rgba(27,67,50,0.04);
+
+  --toggle-bg:    var(--forest);
+  --toggle-text:  var(--white);
+}
+
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS — DARK
+───────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:           var(--forest);
+  --bg-nav:       rgba(27,67,50,0.92);
+  --bg-surface:   rgba(255,255,255,0.05);
+  --surface-border: rgba(255,255,255,0.10);
+  --surface-shadow: 0 4px 32px rgba(0,0,0,0.35);
+
+  --heading:      #FFFFFF;
+  --heading-em:   var(--lime);
+  --body:         rgba(255,255,255,0.85);
+  --body-muted:   rgba(255,255,255,0.55);
+
+  --logo-name:    #FFFFFF;
+  --logo-tag:     var(--lime);
+  --logo-shield:  rgba(255,255,255,0.70);
+
+  --eyebrow-bg:   rgba(183,228,199,0.12);
+  --eyebrow-text: var(--lime);
+  --eyebrow-dot:  var(--lime);
+
+  --rule:         rgba(255,255,255,0.10);
+  --divider:      rgba(255,255,255,0.08);
+  --footer-bg:    rgba(0,0,0,0.15);
+  --footer-text:  rgba(255,255,255,0.35);
+  --footer-link:  var(--lime);
+
+  --toc-bg:       rgba(255,255,255,0.04);
+  --toc-border:   rgba(255,255,255,0.10);
+  --toc-link:     var(--lime);
+  --toc-link-hover: #FFFFFF;
+
+  --arc-color:    var(--lime);
+  --arc-opacity:  0.08;
+  --grid-color:   rgba(183,228,199,0.04);
+
+  --toggle-bg:    rgba(255,255,255,0.10);
+  --toggle-text:  #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────
+   BACKGROUND DECORATION
+───────────────────────────────────────────── */
+.bg-deco {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-deco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.arc-1 {
+  position: absolute;
+  top: -220px; right: -280px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 56px solid var(--arc-color);
+  opacity: var(--arc-opacity);
+  transition: opacity 0.4s ease;
+}
+
+.arc-2 {
+  position: absolute;
+  bottom: -300px; left: -180px;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  border: 36px solid var(--arc-color);
+  opacity: calc(var(--arc-opacity) * 0.5);
+  transition: opacity 0.4s ease;
+}
+
+[data-theme="dark"] .arc-1,
+[data-theme="dark"] .arc-2 { display: none; }
+
+.glow {
+  display: none;
+  position: absolute;
+  top: 5%; left: -5%;
+  width: 65vw; height: 65vw;
+  max-width: 650px; max-height: 650px;
+  background: radial-gradient(ellipse, rgba(45,122,86,0.20) 0%, transparent 70%);
+}
+[data-theme="dark"] .glow { display: block; }
+
+/* ─────────────────────────────────────────────
+   NAV — identical to holding page
+───────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-nav);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--divider);
+  padding: 0 40px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.logo-text-wrap { display: flex; flex-direction: column; gap: 2px; }
+
+.logo-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--logo-name);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.logo-tagline {
+  font-weight: 500;
+  font-size: 9px;
+  color: var(--logo-tag);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-back {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--body-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.nav-back:hover { color: var(--sage); }
+.nav-back svg { width: 14px; height: 14px; }
+
+.theme-toggle {
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--divider);
+  border-radius: 50px;
+  padding: 7px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* ─────────────────────────────────────────────
+   PAGE LAYOUT
+───────────────────────────────────────────── */
+.page {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 56px 40px 96px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ─────────────────────────────────────────────
+   SIDEBAR — sticky TOC
+───────────────────────────────────────────── */
+.sidebar {
+  position: sticky;
+  top: 88px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.1s forwards;
+}
+
+.toc {
+  background: var(--toc-bg);
+  border: 1px solid var(--toc-border);
+  border-radius: 14px;
+  padding: 20px 20px 24px;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.toc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--body-muted);
+  margin-bottom: 14px;
+  display: block;
+  transition: color 0.4s ease;
+}
+
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toc-list a {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--toc-link);
+  text-decoration: none;
+  padding: 5px 8px;
+  border-radius: 6px;
+  line-height: 1.4;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.toc-list a:hover {
+  color: var(--toc-link-hover);
+  background: rgba(45,122,86,0.08);
+}
+
+[data-theme="dark"] .toc-list a:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.toc-updated {
+  font-size: 11px;
+  color: var(--body-muted);
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  line-height: 1.5;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────
+   MAIN CONTENT
+───────────────────────────────────────────── */
+.content {
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.2s forwards;
+}
+
+/* Page title block */
+.page-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.4s ease;
+}
+
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--eyebrow-bg);
+  color: var(--eyebrow-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.page-title {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: clamp(30px, 4vw, 44px);
+  color: var(--heading);
+  line-height: 1.15;
+  margin-bottom: 14px;
+  transition: color 0.4s ease;
+}
+
+.page-meta {
+  font-size: 14px;
+  color: var(--body-muted);
+  transition: color 0.4s ease;
+}
+
+.page-meta strong {
+  color: var(--body);
+  font-weight: 600;
+}
+
+/* Intro lead paragraph */
+.lead {
+  font-size: 17px;
+  color: var(--body-muted);
+  line-height: 1.75;
+  margin-bottom: 48px;
+  padding: 20px 24px;
+  border-left: 3px solid var(--lime);
+  background: var(--toc-bg);
+  border-radius: 0 10px 10px 0;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Sections */
+.policy-section {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.4s ease;
+}
+
+.policy-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section-number {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eyebrow-dot);
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--heading);
+  line-height: 1.25;
+  margin-bottom: 16px;
+  transition: color 0.4s ease;
+}
+
+h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--heading);
+  margin-top: 24px;
+  margin-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+p {
+  font-size: 15px;
+  color: var(--body-muted);
+  line-height: 1.75;
+  margin-bottom: 14px;
+  transition: color 0.4s ease;
+}
+
+p:last-child { margin-bottom: 0; }
+
+ul {
+  margin: 12px 0 16px 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+ul li {
+  font-size: 15px;
+  color: var(--body-muted);
+  line-height: 1.65;
+  padding-left: 22px;
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+}
+
+a {
+  color: var(--sage);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover { text-decoration: underline; }
+
+[data-theme="dark"] a { color: var(--lime); }
+
+/* Contact block */
+.contact-block {
+  background: var(--toc-bg);
+  border: 1px solid var(--toc-border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.contact-row {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.contact-label {
+  font-weight: 700;
+  color: var(--heading);
+  min-width: 80px;
+  flex-shrink: 0;
+  transition: color 0.4s ease;
+}
+
+.contact-value {
+  color: var(--body-muted);
+  transition: color 0.4s ease;
+}
+
+/* Rights grid */
+.rights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.right-card {
+  background: var(--toc-bg);
+  border: 1px solid var(--toc-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.right-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.4s ease;
+}
+
+.right-card-title svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--sage);
+}
+
+[data-theme="dark"] .right-card-title svg { color: var(--lime); }
+
+.right-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Note/callout */
+.callout {
+  background: var(--eyebrow-bg);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  transition: background 0.4s ease;
+}
+
+[data-theme="dark"] .callout {
+  background: rgba(183,228,199,0.08);
+  border-left-color: var(--lime);
+}
+
+.callout p {
+  font-size: 13px;
+  color: var(--body-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+footer {
+  position: relative;
+  z-index: 1;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--divider);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--footer-text);
+  flex-wrap: wrap;
+  gap: 12px;
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+footer a {
+  color: var(--footer-link);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+footer a:hover { text-decoration: underline; }
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 80px;
+    gap: 40px;
+  }
+  .sidebar {
+    position: static;
+    order: -1;
+  }
+  .toc { display: none; } /* hide TOC on mobile — headings act as anchors */
+  nav { padding: 0 24px; }
+  footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+  .rights-grid { grid-template-columns: 1fr; }
+  .nav-back span { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-deco" aria-hidden="true">
+  <div class="arc-1"></div>
+  <div class="arc-2"></div>
+  <div class="glow"></div>
+</div>
+
+<!-- ── Nav ── -->
+<nav>
+  <a class="logo" href="/">
+    <svg width="34" height="38" viewBox="0 0 34 38" fill="none" aria-hidden="true">
+      <path d="M17 2L3 8v11c0 9 6 17 14 19 8-2 14-10 14-19V8L17 2z"
+            stroke="var(--logo-shield)" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+      <path d="M11 19l4.5 4.5L23 14"
+            stroke="var(--logo-shield)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="logo-text-wrap">
+      <span class="logo-name">SecurSentry</span>
+      <span class="logo-tagline">Cyber security, made simple</span>
+    </div>
+  </a>
+
+  <div class="nav-right">
+    <a class="nav-back" href="/">
+      <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Back to home</span>
+    </a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle colour theme">
+      <span id="toggleIcon">🌙</span>
+      <span id="toggleLabel">Dark mode</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Page ── -->
+<div class="page">
+
+  <!-- Sidebar TOC -->
+  <aside class="sidebar">
+    <nav class="toc" aria-label="Page contents">
+      <span class="toc-label">Contents</span>
+      <ul class="toc-list">
+        <li><a href="#who-we-are">1. Who we are</a></li>
+        <li><a href="#what-we-collect">2. What we collect</a></li>
+        <li><a href="#legal-basis">3. Legal basis</a></li>
+        <li><a href="#how-we-use">4. How we use it</a></li>
+        <li><a href="#third-parties">5. Third-party processors</a></li>
+        <li><a href="#retention">6. Data retention</a></li>
+        <li><a href="#transfers">7. International transfers</a></li>
+        <li><a href="#your-rights">8. Your rights</a></li>
+        <li><a href="#cookies">9. Cookies</a></li>
+        <li><a href="#children">10. Children's privacy</a></li>
+        <li><a href="#complaints">11. Complaints</a></li>
+        <li><a href="#changes">12. Changes</a></li>
+        <li><a href="#contact">13. Contact us</a></li>
+      </ul>
+      <p class="toc-updated">Last updated<br><strong>March 2025</strong></p>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+
+    <div class="page-header">
+      <span class="page-eyebrow">Legal</span>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-meta">
+        Operated by <strong>Prussel Holdings Limited</strong> trading as SecurSentry
+        &nbsp;·&nbsp; Effective: <strong>March 2025</strong>
+      </p>
+    </div>
+
+    <p class="lead">
+      We take your privacy seriously — which makes sense, given we're building a product to help businesses take security seriously too. This policy explains what personal data we collect when you visit secursentry.com, why we collect it, how we use it, and your rights under UK GDPR and EU GDPR.
+    </p>
+
+    <!-- 1 -->
+    <section class="policy-section" id="who-we-are">
+      <span class="section-number">Section 01</span>
+      <h2>Who We Are</h2>
+      <p>The data controller for secursentry.com is:</p>
+      <div class="contact-block">
+        <div class="contact-row">
+          <span class="contact-label">Company</span>
+          <span class="contact-value">Prussel Holdings Limited (trading as SecurSentry)</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Website</span>
+          <span class="contact-value">secursentry.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3bbb6bfbfbc93a0b6b0a6a1a0b6bda7a1aafdb0bcbe">[email&#160;protected]</a></span>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px;">
+        <p>We will update this policy with our registered address and company number once formally registered.</p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="policy-section" id="what-we-collect">
+      <span class="section-number">Section 02</span>
+      <h2>What Personal Data We Collect</h2>
+      <p>We currently operate a holding page at secursentry.com, which collects the following information when you register your interest:</p>
+
+      <h3>Data you provide directly</h3>
+      <ul>
+        <li>Your name</li>
+        <li>Your work email address</li>
+        <li>Your company size (selected from a range, e.g. 1–10, 11–25)</li>
+      </ul>
+
+      <h3>Data collected automatically</h3>
+      <ul>
+        <li>IP address — collected by Cloudflare as part of normal internet traffic handling</li>
+        <li>Approximate location data derived from IP address</li>
+        <li>Browser type, device type, and operating system (via Cloudflare analytics)</li>
+        <li>Pages visited and time spent on site (via Cloudflare Web Analytics)</li>
+      </ul>
+      <p>We use Cloudflare Web Analytics, which is a privacy-focused tool. It does not use cookies, does not fingerprint individual users, and does not share data with advertising networks.</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="policy-section" id="legal-basis">
+      <span class="section-number">Section 03</span>
+      <h2>Legal Basis for Processing</h2>
+      <p>Under UK GDPR and EU GDPR, we must have a lawful basis for processing your personal data.</p>
+
+      <h3>Consent (Article 6(1)(a))</h3>
+      <p>When you complete and submit the interest registration form, you are actively providing your personal data and consenting to us contacting you about the SecurSentry product launch. You may withdraw this consent at any time by emailing <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d65686161624d7e686e787f7e6863797f74236e6260">[email&#160;protected]</a>.</p>
+
+      <h3>Legitimate interests (Article 6(1)(f))</h3>
+      <p>We use Cloudflare analytics to understand how visitors use our website so we can improve it. This involves collecting anonymised, aggregated data about site usage. We consider this to be in our legitimate interests as a business, and we have assessed that it does not override your privacy rights, given the privacy-preserving nature of the tool used.</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="policy-section" id="how-we-use">
+      <span class="section-number">Section 04</span>
+      <h2>How We Use Your Data</h2>
+      <p>We use the personal data we collect for the following purposes:</p>
+      <ul>
+        <li>To contact you when SecurSentry launches or reaches a relevant milestone</li>
+        <li>To understand the size and type of businesses on our waitlist, so we can prioritise product development accordingly</li>
+        <li>To respond to any questions or enquiries you send us</li>
+        <li>To monitor and improve the performance and usability of our website</li>
+      </ul>
+      <p>We do not use your data for automated decision-making or profiling. We do not sell your data to third parties. We do not use your data for advertising purposes.</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="policy-section" id="third-parties">
+      <span class="section-number">Section 05</span>
+      <h2>Third-Party Processors</h2>
+      <p>We share your data with a small number of trusted third-party processors who help us operate our website and manage submissions. All processors are bound by data processing agreements and handle your data only on our instructions.</p>
+
+      <h3>Formspree (form submissions)</h3>
+      <p>Formspree, Inc. processes the data you submit via our registration form. Formspree is based in the United States. For transfers of personal data from the UK or EU, Formspree relies on Standard Contractual Clauses (SCCs) as the lawful transfer mechanism.</p>
+      <p><a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree Privacy Policy →</a></p>
+
+      <h3>Cloudflare (hosting and analytics)</h3>
+      <p>Cloudflare, Inc. hosts our website and provides analytics and security services. Cloudflare processes IP addresses and traffic data as part of its standard operations. Cloudflare participates in the EU-US Data Privacy Framework and provides SCCs for UK/EU transfers.</p>
+      <p><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy →</a></p>
+
+      <h3>No other processors</h3>
+      <p>We do not currently use any other third-party services that process personal data, including advertising networks, social media trackers, or CRM platforms. We will update this policy if this changes.</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="policy-section" id="retention">
+      <span class="section-number">Section 06</span>
+      <h2>How Long We Keep Your Data</h2>
+      <p>We retain waitlist registration data (name, email, company size) for as long as is necessary to contact you about the SecurSentry product launch, and for a reasonable period thereafter. Specifically:</p>
+      <ul>
+        <li>If SecurSentry launches, we will contact you and give you the opportunity to opt in or out of further communications at that point</li>
+        <li>If you ask us to remove your data at any time, we will do so within 30 days</li>
+        <li>If the product does not launch and we decide to wind down, we will securely delete all waitlist data</li>
+      </ul>
+      <p>Cloudflare retains analytics data in accordance with its own retention policy. Cloudflare Web Analytics data is retained for up to 30 days by default.</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="policy-section" id="transfers">
+      <span class="section-number">Section 07</span>
+      <h2>International Data Transfers</h2>
+      <p>Our processors Formspree and Cloudflare are based in the United States. Transfers of your personal data to these processors are made under appropriate safeguards:</p>
+      <ul>
+        <li><strong>EU personal data:</strong> Standard Contractual Clauses (SCCs) approved by the European Commission</li>
+        <li><strong>UK personal data:</strong> International Data Transfer Agreements (IDTAs) or addendums to SCCs as approved by the UK ICO</li>
+      </ul>
+      <p>You can request further information about these transfer mechanisms by contacting us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2bab7bebebd92a1b7b1a7a0a1b7bca6a0abfcb1bdbf">[email&#160;protected]</a>.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="policy-section" id="your-rights">
+      <span class="section-number">Section 08</span>
+      <h2>Your Rights</h2>
+      <p>Under UK GDPR and EU GDPR, you have the following rights in relation to your personal data:</p>
+
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="right-card-title">
+            <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M7 4.5v3l1.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Right of access
+          </div>
+          <p>Request a copy of the personal data we hold about you and how we use it.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-title">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Right to rectification
+          </div>
+          <p>Ask us to correct inaccurate or incomplete data we hold about you.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-title">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Right to erasure
+          </div>
+          <p>Ask us to delete your personal data. We'll comply unless we have a legal reason to retain it.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-title">
+            <svg viewBox="0 0 14 14" fill="none"><rect x="2" y="5" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5 5V4a2 2 0 114 0v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Right to restrict
+          </div>
+          <p>Ask us to pause processing your data in certain circumstances.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-title">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 4h10v7a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 4V3a1 1 0 011-1h3a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.3"/></svg>
+            Right to portability
+          </div>
+          <p>Receive your personal data in a structured, machine-readable format where applicable.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-card-title">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M7 2v5l3 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg>
+            Right to object
+          </div>
+          <p>Object to processing based on our legitimate interests at any time.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:20px;">To exercise any of these rights, please contact us at <a href="/cdn-cgi/l/email-protection#1b737e7777745b687e786e69687e756f696235787476"><span class="__cf_email__" data-cfemail="0d65686161624d7e686e787f7e6863797f74236e6260">[email&#160;protected]</span></a>. We will respond within one month. There is no charge for making a request.</p>
+    </section>
+
+    <!-- 9 -->
+    <section class="policy-section" id="cookies">
+      <span class="section-number">Section 09</span>
+      <h2>Cookies</h2>
+      <p>Our website does not use cookies for tracking, advertising, or analytics purposes. Cloudflare may set strictly necessary cookies for security and performance purposes (such as preventing DDoS attacks). These are functional cookies and do not require consent under UK or EU law.</p>
+      <p>We do not use third-party advertising cookies, social media pixels, or any other non-essential cookies.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="policy-section" id="children">
+      <span class="section-number">Section 10</span>
+      <h2>Children's Privacy</h2>
+      <p>Our website and product are directed at businesses and business professionals. We do not knowingly collect personal data from anyone under the age of 16. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+    </section>
+
+    <!-- 11 -->
+    <section class="policy-section" id="complaints">
+      <span class="section-number">Section 11</span>
+      <h2>How to Make a Complaint</h2>
+      <p>If you are unhappy with how we have handled your personal data, please contact us first at <a href="/cdn-cgi/l/email-protection#7d15181111123d0e181e080f0e1813090f04531e1210"><span class="__cf_email__" data-cfemail="cfa7aaa3a3a08fbcaaacbabdbcaaa1bbbdb6e1aca0a2">[email&#160;protected]</span></a> so we can try to put it right. If you are not satisfied with our response, you have the right to lodge a complaint with the relevant supervisory authority:</p>
+
+      <h3>UK residents</h3>
+      <p>Information Commissioner's Office (ICO)<br>
+      <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> &nbsp;·&nbsp; 0303 123 1113</p>
+
+      <h3>EU residents</h3>
+      <p>You may contact the data protection authority in your EU member state. A full list is available at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener">edpb.europa.eu</a>.</p>
+    </section>
+
+    <!-- 12 -->
+    <section class="policy-section" id="changes">
+      <span class="section-number">Section 12</span>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time — for example when we add new features, engage new processors, or when the law changes. When we make material changes, we will update the effective date at the top of this document.</p>
+      <p>We encourage you to review this policy periodically. Continued use of our website after changes have been posted constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <!-- 13 -->
+    <section class="policy-section" id="contact">
+      <span class="section-number">Section 13</span>
+      <h2>Contact Us</h2>
+      <p>If you have any questions about this privacy policy or how we handle your personal data, please get in touch. We aim to respond to all enquiries within 5 working days.</p>
+      <div class="contact-block">
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="/cdn-cgi/l/email-protection#fd9598919192bd8e989e888f8e9893898f84d39e9290"><span class="__cf_email__" data-cfemail="bbd3ded7d7d4fbc8ded8cec9c8ded5cfc9c295d8d4d6">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Company</span>
+          <span class="contact-value">Prussel Holdings Limited (trading as SecurSentry)</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Website</span>
+          <span class="contact-value"><a href="https://secursentry.com">secursentry.com</a></span>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:20px;">
+        <p>This policy covers secursentry.com in its current form as a holding page. It will be reviewed and updated prior to the full product launch.</p>
+      </div>
+  
