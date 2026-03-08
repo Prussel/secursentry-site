@@ -865,7 +865,7 @@ footer a:hover { text-decoration: underline; }
           </svg>
         </div>
         <h3>You're on the list</h3>
-        <p>We'll be in touch personally when SecurSentry is ready. In the meantime, if you have any questions just email us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b232e2727240b382e283e39382e253f393265282426">[email&#160;protected]</a>.</p>
+        <p>We'll be in touch personally when SecurSentry is ready. In the meantime, if you have any questions just email us at <a href="#" id="contact-link">hello<!-- -->@<!-- -->secursentry.com</a>.</p>
       </div>
 
     </div>
@@ -879,13 +879,13 @@ footer a:hover { text-decoration: underline; }
   <span>
     <a href="/privacy-policy.html">Privacy Policy</a>
     &nbsp;·&nbsp;
-    <a href="/cdn-cgi/l/email-protection#b4dcd1d8d8dbf4c7d1d7c1c6c7d1dac0c6cd9ad7dbd9"><span class="__cf_email__" data-cfemail="e58d8089898aa5968086909796808b91979ccb868a88">[email&#160;protected]</span></a>
+    <span id="footer-email"></span>
   </span>
 </footer>
 
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false">
+<script data-cfasync="false">
   /* ── Theme toggle ── */
   function toggleTheme() {
     var html = document.documentElement;
@@ -958,5 +958,36 @@ footer a:hover { text-decoration: underline; }
       }, 300);
 
     } catch (err) {
-      btn.textContent   = 'Join the waitlist \u2192';
-      b
+      emailInput.placeholder = 'Something went wrong — please try again';
+      setTimeout(function() {
+        emailInput.style.borderColor = '';
+        emailInput.placeholder       = 'alex@yourcompany.co.uk';
+      }, 3000);
+    }
+  }
+
+  /* ── Build email addresses in JS so Cloudflare never sees them in HTML ── */
+  (function() {
+    var u = 'hello';
+    var d = 'secursentry.com';
+    var addr = u + '@' + d;
+
+    // Footer email
+    var fe = document.getElementById('footer-email');
+    if (fe) {
+      var a = document.createElement('a');
+      a.href = 'mailto:' + addr;
+      a.textContent = addr;
+      fe.parentNode.replaceChild(a, fe);
+    }
+
+    // Success state contact link
+    var cl = document.getElementById('contact-link');
+    if (cl) {
+      cl.href = 'mailto:' + addr;
+      cl.textContent = addr;
+    }
+  })();
+</script>
+</body>
+</html>
